@@ -9,7 +9,7 @@ In this exercise, you will implement a (relatively) simple point-of-sale registe
 > This is actually one of the "Code Katas" discussed [here](http://codekata.com/kata/kata01-supermarket-pricing/). However, unlike Dave's Kata, I require coding. :-) More importantly, this is a common exercise developers go through to practice their design skills, and more than once something like this has shown up in an engineering interview process. For extra fun (on your own time), write the assignment a second time using Java, and/or Kotlin, and/or C#, and/or Dart.... The purpose of the exercise is to help you learn how different features of your chosen programming language can be used to design and implement non-trivial requirements.
 
 ## To get started...
-... you must first obtain a copy of the source. You do that by cloning this repository. Two options are available to you:
+... you must first obtain a copy of the source. You do that by cloning or forking this repository so that you have a copy in your GitHub account. Two options are available to you:
 
 1. **Fork this repository.** From the GitHub repository web page, click "Fork" in the upper-right. This will create a copy of this repository in your own GitHub account. From there do a `git clone` from your own copy of the GitHub repository. (If you are unsure of the clone syntax, open the new repository in your account from the web, and click the green "Code" button--it will offer the correct syntax to use.)
 
@@ -31,7 +31,7 @@ In this exercise, you will implement a (relatively) simple point-of-sale registe
 
 
 ## To work on the code...
-Open the project in XCode. It is set up as a console application that uses some unit tests to verify that the code works, though you will need to add and/or modify the tests.
+Open the project in XCode. It is set up as a console application that uses some unit tests to verify that the code works, though you will need to add and/or modify the tests. Note: The project, in its current form (when you clone it) will not compile, as the tests that are there assume the existence of the methods and properties described below. Feel free to comment out or 
 
 Implement the following:
 
@@ -51,8 +51,18 @@ Implement the following:
 * Create a class `Item` that implements `SKU` and uses a price-per-item pricing scheme. That is to say, a $4.99 can of beans (an `Iten("Beans", 499)`) or a $.99 pencil (a `Item("Pencil", 99)`).
     * Create a unit test that tests adding a single Item to the Register and displays its subtotal (which should be the single Item's price).
 
+Total: 5 points.
+
+You must have unit tests that exercise your code, and your tests must pass.
+
+> Note that there is a natural inclination to have a minimal number of tests that each test trivial things; while we don't expect you to create thousands of tests, we reserve the right to dock points if we feel like you're not testing even the simplest of things.
+
+However, this is just the tip of the iceberg; within this assignment is an opportunity to earn a LOT of points (which is a good thing--bank against future disasters!).
+
 ## Now for the fun part
-This is just the tip of the iceberg. Implementing each of these--and their corresponding unit tests--is worth 2 extra credit points. Note that these are not necessarily easy, and hte moer of them you do, the more you will feel the weight of poor design making your code more complex and difficult to extend/enhance. If that happens to you, it's OK, that's why these are extra credit, but it helps make it clear why we generally want to think some before just churning out code.
+Implementing each of the below bullet points--along with their corresponding unit tests--is worth 2 extra credit points. Note that these are not necessarily easy, and the more of them you do, the greater the chance you will feel the weight of your prior design choices making your code more complex and difficult to extend/enhance. If that happens to you, it's OK, that's why these are extra credit, but it helps make it clear why we generally want to think some before just churning out code.
+
+> Yes, there are six items here, each of which is worth 2 points, leading to the very real possibility that if you do all of them, you can get 17 out of 5 points for this assignment!
 
 * **2-for-1 Pricing:** Stores and manufacturers will often offer "bunched pricing", such that you can buy a can of beans by itself at $1.99, or three of them for $2.98 (2-for-1, also known as "buy two, get one free"). Implement a `PricingScheme` that can be added to the `Register` so that from this point forward, any purchase of three of a particular kind of good will change the price to only two of them.
     * There are no limits to the number of times that can apply to a single Receipt, so long as the good in question is on the Receipt. However, the core criteria must be met--if the 2-for-1 is for "Can of beans", and there is only one "Can of beans" on the Receipt, it does not kick in. If there are two "Can of beans" on the Receipt, then the pricing kicks in but the customer doesn't get a third "Can of beans" unless that is scanned.
